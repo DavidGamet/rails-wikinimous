@@ -1,0 +1,26 @@
+<h1>INDEX</h1>
+
+<div>
+<p>Voir tout les articles</p>
+<% @articles.each do |article| %>
+  <%= link_to article.title, article_path(article) %>
+    <div>
+    <p>Aller vers le formulaire edit</p>
+    <%= link_to 'edit', edit_article_path(article) %>
+    </div>
+
+    <div>
+    <p>effacer un article </p>
+    <%= link_to "Delete", article_path(article),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %>
+</div>
+
+<div>
+<p>faire un nouvel article</p>
+<%= link_to 'new article', new_article_path %>
+</div>
+
+
